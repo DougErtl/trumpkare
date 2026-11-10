@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TrumpKare — The Best Healthcare, Believe Me</title>
+<meta name="description" content="TrumpKare: a satirical healthcare plan. Tremendous coverage. The full plan arrives in two weeks. Not real insurance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#c8102e; --navy:#0a1f44; --gold:#d4af37; --gold2:#f7e08a; --cream:#fffaf0;
+    --ink:#1a1a1a; --muted:#5b5b5b;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.55}
+  a{color:inherit}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+  .gold-text{background:linear-gradient(180deg,var(--gold2),var(--gold) 55%,#9c7a17);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  /* ticker */
+  .ticker{background:var(--red);color:#fff;font:600 14px/1 Oswald,sans-serif;letter-spacing:.06em;text-transform:uppercase;overflow:hidden;white-space:nowrap;padding:9px 0}
+  .ticker span{display:inline-block;padding-left:100%;animation:scroll 38s linear infinite}
+  @keyframes scroll{to{transform:translateX(-100%)}}
+
+  /* nav */
+  nav{background:var(--navy);color:#fff;position:sticky;top:0;z-index:10;border-bottom:4px solid var(--gold)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:12px;padding-bottom:12px}
+  .logo{font:900 28px/1 "Playfair Display",serif;text-decoration:none;letter-spacing:.01em}
+  .logo small{font:500 11px Oswald;letter-spacing:.2em;display:block;color:#cfd6e6;margin-top:3px}
+  nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;font:500 15px Oswald;text-transform:uppercase;letter-spacing:.05em}
+  nav ul a{text-decoration:none;opacity:.9}
+  nav ul a:hover{color:var(--gold2)}
+  @media (max-width:760px){nav ul{display:none}}
+
+  /* hero */
+  .hero{background:
+      radial-gradient(circle at 80% 20%,rgba(212,175,55,.35),transparent 45%),
+      linear-gradient(135deg,var(--navy) 0%,#13306b 60%,var(--red) 140%);
+    color:#fff;padding:72px 0 88px;position:relative;overflow:hidden}
+  .hero:after{content:"★ ★ ★ ★ ★";position:absolute;right:-20px;bottom:-30px;font-size:160px;opacity:.06;letter-spacing:-10px}
+  .hero h1{font:900 clamp(44px,8vw,92px)/.95 "Playfair Display",serif;margin:0 0 18px}
+  .hero p.lead{font-size:clamp(18px,2.4vw,23px);max-width:640px;margin:0 0 28px;color:#e6ebf5}
+  .badge{display:inline-block;font:600 13px Oswald;letter-spacing:.15em;text-transform:uppercase;background:var(--gold);color:var(--navy);padding:6px 12px;border-radius:3px;margin-bottom:18px}
+  .btns{display:flex;flex-wrap:wrap;gap:14px}
+  .btn{font:700 18px Oswald;letter-spacing:.06em;text-transform:uppercase;border:0;cursor:pointer;padding:16px 28px;border-radius:6px;text-decoration:none;display:inline-block;transition:transform .15s}
+  .btn:hover{transform:translateY(-2px) scale(1.02)}
+  .btn-gold{background:linear-gradient(180deg,var(--gold2),var(--gold));color:var(--navy);box-shadow:0 6px 0 #8a6b12}
+  .btn-ghost{background:transparent;color:#fff;border:2px solid #fff}
+  .fine{font-size:12px;color:#b9c3d8;margin-top:16px}
+
+  /* countdown */
+  .countdown{background:#fff;border-top:6px solid var(--red);border-bottom:6px solid var(--navy);padding:36px 0;text-align:center}
+  .countdown h2{font:700 22px Oswald;text-transform:uppercase;letter-spacing:.08em;margin:0 0 14px;color:var(--navy)}
+  .clock{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+  .clock div{background:var(--navy);color:var(--gold2);min-width:90px;padding:14px 10px;border-radius:8px;font:700 44px/1 Oswald}
+  .clock small{display:block;font:500 12px Oswald;letter-spacing:.15em;color:#cfd6e6;margin-top:6px}
+  .countdown p{color:var(--muted);margin:16px 0 0;font-size:14px}
+
+  section{padding:72px 0}
+  h2.section{font:900 clamp(32px,5vw,48px)/1.05 "Playfair Display",serif;margin:0 0 10px;color:var(--navy);text-align:center}
+  p.sub{text-align:center;color:var(--muted);max-width:640px;margin:0 auto 40px;font-size:18px}
+
+  /* plans */
+  .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+  .plan{background:#fff;border:2px solid #e8e1cc;border-radius:12px;padding:28px 22px;position:relative;display:flex;flex-direction:column}
+  .plan h3{font:700 24px Oswald;text-transform:uppercase;margin:0 0 6px;letter-spacing:.04em}
+  .price{font:900 30px "Playfair Display",serif;color:var(--red);margin:4px 0 14px}
+  .plan ul{padding-left:20px;margin:0 0 20px;flex:1}
+  .plan li{margin-bottom:8px}
+  .plan.best{background:linear-gradient(160deg,#1a1405,#3d2f08);color:#fff;border:3px solid var(--gold);transform:scale(1.03);box-shadow:0 18px 40px rgba(0,0,0,.25)}
+  .plan.best .price{color:var(--gold2)}
+  .ribbon{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--red);color:#fff;font:700 12px Oswald;letter-spacing:.12em;padding:6px 12px;border-radius:20px;white-space:nowrap}
+  .plan .btn{font-size:15px;padding:12px;text-align:center}
+  .plan .btn-navy{background:var(--navy);color:#fff}
+
+  /* coverage */
+  .cover{background:var(--navy);color:#fff}
+  .cover h2.section{color:#fff}
+  .cover p.sub{color:#cfd6e6}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+  .card{background:rgba(255,255,255,.06);border:1px solid rgba(212,175,55,.35);border-radius:10px;padding:20px}
+  .card .ico{font-size:30px}
+  .card h4{font:700 19px Oswald;letter-spacing:.03em;margin:8px 0 6px;color:var(--gold2)}
+  .card p{margin:0;color:#dfe5f2;font-size:15px}
+
+  /* quiz */
+  .quiz{max-width:640px;margin:0 auto;background:#fff;border-radius:14px;padding:28px;border:3px solid var(--gold);box-shadow:0 10px 30px rgba(10,31,68,.12)}
+  .quiz label{display:block;font-weight:600;margin:14px 0 6px}
+  .quiz select,.quiz input{width:100%;padding:12px;border:2px solid #ddd;border-radius:8px;font:inherit}
+  .quiz .btn{width:100%;margin-top:20px}
+  .result{margin-top:20px;padding:18px;border-radius:10px;background:#fff6d6;border-left:6px solid var(--gold);display:none}
+  .result.show{display:block;animation:pop .35s ease}
+  @keyframes pop{from{transform:scale(.95);opacity:0}}
+
+  /* doctor */
+  .doc{display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center}
+  .doc-card{background:#fff;border-radius:12px;padding:24px;max-width:520px;width:100%;border:2px dashed var(--red);min-height:120px}
+  .doc-card b{font:700 22px Oswald;color:var(--navy);display:block;margin-bottom:6px}
+
+  /* testimonials */
+  .quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+  blockquote{margin:0;background:#fff;border-radius:12px;padding:24px;border-top:5px solid var(--red);font:italic 700 19px/1.4 "Playfair Display",serif;color:var(--navy)}
+  blockquote cite{display:block;margin-top:12px;font:500 13px Inter;font-style:normal;color:var(--muted)}
+  .stars{color:var(--gold);letter-spacing:2px;font-size:18px;margin-bottom:8px}
+
+  /* faq */
+  details{background:#fff;border-radius:10px;margin:0 auto 12px;max-width:780px;border:1px solid #e8e1cc}
+  summary{cursor:pointer;padding:18px 20px;font:700 18px Oswald;letter-spacing:.02em;color:var(--navy);list-style:none}
+  summary::-webkit-details-marker{display:none}
+  summary:before{content:"★ ";color:var(--red)}
+  details p{margin:0;padding:0 20px 18px;color:#333}
+
+  /* modal */
+  .modal{position:fixed;inset:0;background:rgba(10,31,68,.75);display:none;align-items:center;justify-content:center;z-index:50;padding:16px}
+  .modal.show{display:flex}
+  .modal-box{background:#fff;max-width:480px;width:100%;border-radius:14px;padding:30px;text-align:center;border:4px solid var(--gold)}
+  .modal-box h3{font:900 30px "Playfair Display",serif;color:var(--navy);margin:0 0 10px}
+  .bar{height:20px;background:#eee;border-radius:10px;overflow:hidden;margin:18px 0 8px}
+  .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--red),var(--gold));transition:width .2s}
+
+  footer{background:#06142e;color:#aeb8cc;padding:40px 0;font-size:14px;text-align:center}
+  footer .logo{color:#fff;display:inline-block;margin-bottom:12px}
+  .disclaimer{max-width:760px;margin:16px auto 0;padding:14px;border:1px solid #2a3b5f;border-radius:8px;font-size:13px}
+</style>
+</head>
+<body>
+
+<div class="ticker"><span>
+★ BREAKING: TrumpKare declared "the greatest healthcare plan in the history of plans, maybe ever" by TrumpKare ★ Pre-existing conditions now "pre-forgiven" ★ Full plan details arriving in TWO WEEKS ★ Hospitals report record-breaking crowd sizes, much bigger than Obama's ★ Doctors standing by, tears in their eyes ★
+</span></div>
+
+<nav>
+  <div class="wrap">
+    <a class="logo gold-text" href="#">TrumpKare<small>HEALTHCARE · BUT GREATER</small></a>
+    <ul>
+      <li><a href="#plans">Plans</a></li>
+      <li><a href="#coverage">Coverage</a></li>
+      <li><a href="#eligible">Am I Eligible?</a></li>
+      <li><a href="#doctor">Find a Doctor</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="badge">★ Now with a Concept of a Plan ★</div>
+    <h1>The Best<br><span class="gold-text">Healthcare.</span><br>Tremendous.</h1>
+    <p class="lead">Obamacare was a disaster, folks. Total disaster. So we're replacing it with something much better, much cheaper, much more beautiful. We spell it with a <b>K</b>. Why? Because it's <b>Klassier</b>. Everybody agrees.</p>
+    <div class="btns">
+      <button class="btn btn-gold" onclick="enroll()">Enroll Bigly</button>
+      <a class="btn btn-ghost" href="#plans">See the Plans</a>
+    </div>
+    <p class="fine">*Coverage begins in two weeks. Has always begun in two weeks. Will continue to begin in two weeks.</p>
+  </div>
+</header>
+
+<div class="countdown">
+  <div class="wrap">
+    <h2>Full TrumpKare Plan Revealed In:</h2>
+    <div class="clock">
+      <div id="d">14<small>DAYS</small></div>
+      <div id="h">00<small>HOURS</small></div>
+      <div id="m">00<small>MINUTES</small></div>
+      <div id="s">00<small>SECONDS</small></div>
+    </div>
+    <p>Countdown resets automatically every time it gets close. This is a feature, not a bug.</p>
+  </div>
+</div>
+
+<section id="plans">
+  <div class="wrap">
+    <h2 class="section">Choose Your Plan</h2>
+    <p class="sub">Four incredible tiers. Nobody's ever seen tiers like this. People are calling them the best tiers.</p>
+    <div class="plans">
+      <div class="plan">
+        <h3>Bronze</h3>
+        <div class="price">Very Low</div>
+        <ul>
+          <li>Thoughts &amp; prayers (unlimited)</li>
+          <li>One (1) Sharpie for self-diagnosis</li>
+          <li>WebMD access, but only the good pages</li>
+          <li>Copay: "Reasonable"</li>
+        </ul>
+        <button class="btn btn-navy" onclick="enroll()">Select Bronze</button>
+      </div>
+      <div class="plan">
+        <h3>Silver</h3>
+        <div class="price">Even Lower</div>
+        <ul>
+          <li>Everything in Bronze, but louder</li>
+          <li>Annual check-up via phone call (perfect call)</li>
+          <li>Deductible pays for itself, somehow</li>
+          <li>Mexico will pay for your MRI*</li>
+        </ul>
+        <button class="btn btn-navy" onclick="enroll()">Select Silver</button>
+      </div>
+      <div class="plan best">
+        <div class="ribbon">★ MOST TREMENDOUS ★</div>
+        <h3 class="gold-text">Gold</h3>
+        <div class="price">Lowest Ever</div>
+        <ul>
+          <li>Gold-plated band-aids</li>
+          <li>Physical results written by your own personal doctor in 5 minutes</li>
+          <li>Diagnosed "the healthiest individual ever elected to anything"</li>
+          <li>Hospital gowns, now in a slimming fit</li>
+        </ul>
+        <button class="btn btn-gold" onclick="enroll()">Select Gold</button>
+      </div>
+      <div class="plan">
+        <h3>Platinum Resort</h3>
+        <div class="price">Call Us (It's a Lot)</div>
+        <ul>
+          <li>Recovery suite at a beautiful golf property</li>
+          <li>Helicopter to Walter Reed, then a little car parade</li>
+          <li>Experimental treatments nobody else can get</li>
+          <li>Dues billed monthly, then billed again</li>
+        </ul>
+        <button class="btn btn-navy" onclick="enroll()">Inquire Within</button>
+      </div>
+    </div>
+    <p class="fine" style="color:var(--muted);text-align:center;margin-top:24px">*Mexico has not agreed to pay for your MRI.</p>
+  </div>
+</section>
+
+<section id="coverage" class="cover">
+  <div class="wrap">
+    <h2 class="section">What's Covered?</h2>
+    <p class="sub">Everything. Probably. We'll get back to you. Here are some highlights the fake news won't tell you about.</p>
+    <div class="grid">
+      <div class="card"><div class="ico">🦴</div><h4>Bone Spurs</h4><p>Instantly covered, and conveniently timed. They come and go, which is very convenient.</p></div>
+      <div class="card"><div class="ico">🍔</div><h4>Fast Food Wellness</h4><p>A balanced diet of burgers, fries, and Diet Coke. Two scoops of ice cream for members; one for everyone else.</p></div>
+      <div class="card"><div class="ico">🍊</div><h4>Tanning Complications</h4><p>Full coverage for unusual skin tones. "It's the lighting," says our dermatologist.</p></div>
+      <div class="card"><div class="ico">🌀</div><h4>Hurricane Map Adjustments</h4><p>Sharpie-related injuries treated at no cost. Alabama residents especially welcome.</p></div>
+      <div class="card"><div class="ico">💤</div><h4>3 a.m. Typing Syndrome</h4><p>Treatment for all-caps late-night posting. Symptoms include sudden covfefe.</p></div>
+      <div class="card"><div class="ico">🧠</div><h4>Cognitive Testing</h4><p>Person. Woman. Man. Camera. TV. Pass it and you're a genius. Very hard test, actually.</p></div>
+      <div class="card"><div class="ico">💡</div><h4>"Very Interesting" Treatments</h4><p>Ideas brought up at press conferences. Do NOT try these at home. Seriously, don't.</p></div>
+      <div class="card"><div class="ico">🧾</div><h4>Pre-Existing Conditions</h4><p>Totally covered. Beautifully covered. The details are in the plan, which arrives in two weeks.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="eligible">
+  <div class="wrap">
+    <h2 class="section">Am I Eligible?</h2>
+    <p class="sub">Take our very scientific, very fair eligibility quiz. Rigged? Never. Okay, maybe a little.</p>
+    <div class="quiz">
+      <label for="name">Your name</label>
+      <input id="name" placeholder="e.g. A Big Strong Man">
+      <label for="q1">How would you rate your health?</label>
+      <select id="q1">
+        <option>Perfect. Perfect health.</option>
+        <option>Tremendous</option>
+        <option>The best anyone's ever seen</option>
+        <option>Fake news says otherwise</option>
+      </select>
+      <label for="q2">Preferred method of diagnosis</label>
+      <select id="q2">
+        <option>Gut feeling</option>
+        <option>My uncle was a professor at MIT</option>
+        <option>Asked a guy at the rally</option>
+        <option>Sharpie</option>
+      </select>
+      <label for="q3">Crowd size at your last doctor's visit</label>
+      <select id="q3">
+        <option>Biggest ever</option>
+        <option>Much bigger than it looked in photos</option>
+        <option>Just me and the doctor (this is fake news)</option>
+      </select>
+      <button class="btn btn-gold" onclick="checkElig()">Check My Eligibility</button>
+      <div class="result" id="result"></div>
+    </div>
+  </div>
+</section>
+
+<section id="doctor" style="background:#f1ead6">
+  <div class="wrap doc">
+    <h2 class="section">Find a TrumpKare Doctor</h2>
+    <p class="sub" style="margin-bottom:10px">Our network includes only the best people. Many of them are very, very good at medicine. Some of them have heard of it.</p>
+    <div class="doc-card" id="docCard"><b>Your doctor is waiting.</b>Click below to be matched with a provider, tremendously.</div>
+    <button class="btn btn-gold" onclick="findDoc()">Find My Doctor</button>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="section">Real Testimonials*</h2>
+    <p class="sub">*Not real. But they could be. Many people are saying them.</p>
+    <div class="quotes">
+      <blockquote><div class="stars">★★★★★</div>"Sir, sir. A big strong man came up to me, tears in his eyes, and said: 'Sir, this is the best healthcare I've ever had, and I haven't even used it yet.'"<cite>— A Big Strong Man, probably</cite></blockquote>
+      <blockquote><div class="stars">★★★★★</div>"I was skeptical. Then they told me my deductible would be 'something terrific.' I don't know what that means, but I feel great."<cite>— Linda, Ohio</cite></blockquote>
+      <blockquote><div class="stars">★★★★★</div>"My doctor told me I was in perfect health. Then he told me he was also my accountant, my lawyer, and the guy who runs the gift shop."<cite>— Gary, Florida</cite></blockquote>
+      <blockquote><div class="stars">★★★★★</div>"Applied in 2017. Still waiting on the two weeks. Very excited. Any day now."<cite>— Everybody</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:20px">
+  <div class="wrap">
+    <h2 class="section">Frequently Asked Questions</h2>
+    <p class="sub">Very good questions. Some of the best questions. Not like the questions from that reporter.</p>
+    <details><summary>Is TrumpKare cheaper than Obamacare?</summary><p>So much cheaper. You won't believe how cheap. Literally — you won't believe it, because we haven't released the numbers.</p></details>
+    <details><summary>When does the full plan come out?</summary><p>In two weeks. It's been in two weeks for a while now, and honestly it's going to be worth the wait. Check the countdown above.</p></details>
+    <details><summary>Can I keep my doctor?</summary><p>You can keep your doctor, your hospital, and your dignity. Two out of three is still very good. Many experts say it's a winning record.</p></details>
+    <details><summary>What's the deal with the K?</summary><p>"Care" with a C was taken by the other guy. We tested "Kare" with focus groups. Huge numbers. Some say the biggest numbers ever recorded for a letter.</p></details>
+    <details><summary>Do you cover mental health?</summary><p>Yes. Our Social Media Detox program includes supervised phone-free time between 11pm and 6am. Results so far: mixed.</p></details>
+    <details><summary>Is this real?</summary><p>No. TrumpKare.com is political satire. It is not insurance, not a government program, and not affiliated with Donald Trump, any campaign, or any administration. If you need actual health coverage, visit HealthCare.gov.</p></details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="logo gold-text">TrumpKare</div>
+    <div>Making America Healthy Again… Eventually. In Two Weeks.</div>
+    <div class="disclaimer"><b>SATIRE DISCLAIMER:</b> This website is a parody intended for comedic and political commentary purposes only. TrumpKare is not a real health plan, does not sell insurance, collects no personal information, and is not affiliated with or endorsed by Donald J. Trump, the Trump Organization, any political campaign, or any government agency. For real health coverage, visit HealthCare.gov.</div>
+    <p style="margin-top:18px">© <span id="yr"></span> TrumpKare.com — All rights reserved. Very strongly reserved.</p>
+  </div>
+</footer>
+
+<div class="modal" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <h3 id="mTitle">Processing Your Enrollment…</h3>
+    <p id="mText">Please wait while we build a beautiful, big, beautiful enrollment.</p>
+    <div class="bar"><i id="mBar"></i></div>
+    <p id="mPct" style="font:600 14px Oswald;color:var(--muted)">0%</p>
+    <button class="btn btn-gold" id="mBtn" onclick="closeModal()" style="display:none;margin-top:10px">Okay, Fine</button>
+  </div>
+</div>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // The countdown that is always two weeks away
+  let target = Date.now() + 14*864e5;
+  const pad = n => String(n).padStart(2,'0');
+  function tick(){
+    let left = target - Date.now();
+    if(left < 13*864e5){ target = Date.now() + 14*864e5; left = target - Date.now(); }
+    const d = Math.floor(left/864e5), h = Math.floor(left/36e5)%24,
+          m = Math.floor(left/6e4)%60, s = Math.floor(left/1e3)%60;
+    const set = (id,v,l)=>document.getElementById(id).innerHTML = v+'<small>'+l+'</small>';
+    set('d',pad(d),'DAYS'); set('h',pad(h),'HOURS'); set('m',pad(m),'MINUTES'); set('s',pad(s),'SECONDS');
+  }
+  tick(); setInterval(tick,1000);
+
+  // Enrollment modal
+  const msgs = ["Consulting the best people…","Asking Mexico to pay…","Replacing Obamacare…","Almost there, tremendous progress…","Finalizing concepts…"];
+  let timer;
+  function enroll(){
+    const modal = document.getElementById('modal'), bar = document.getElementById('mBar'),
+          pct = document.getElementById('mPct'), txt = document.getElementById('mText'),
+          title = document.getElementById('mTitle'), btn = document.getElementById('mBtn');
+    title.textContent = "Processing Your Enrollment…";
+    btn.style.display = 'none'; modal.classList.add('show');
+    let p = 0; clearInterval(timer);
+    timer = setInterval(()=>{
+      p = Math.min(99, p + Math.random()*9);
+      bar.style.width = p+'%'; pct.textContent = Math.floor(p)+'%';
+      txt.textContent = msgs[Math.min(msgs.length-1, Math.floor(p/20))];
+      if(p >= 99){
+        clearInterval(timer);
+        title.textContent = "99% Complete!";
+        txt.textContent = "Your enrollment is almost done. The final 1% will be finished in two weeks. You're going to love it.";
+        pct.textContent = "99% (very close to 100%, some say closer than anyone's ever been)";
+        btn.style.display = 'inline-block';
+      }
+    },180);
+  }
+  function closeModal(){ clearInterval(timer); document.getElementById('modal').classList.remove('show'); }
+
+  // Eligibility quiz
+  function checkElig(){
+    const name = (document.getElementById('name').value.trim() || "Friend").slice(0,40);
+    const r = document.getElementById('result');
+    const lines = [
+      "Approved! Totally approved. Nobody gets approved like you.",
+      "Congratulations, you scored 110%. The highest score ever recorded, possibly.",
+      "You're eligible. Very eligible. Some would say the most eligible."
+    ];
+    r.textContent = '';
+    const b = document.createElement('b'); b.textContent = "Great news, " + name + "! ";
+    r.append(b, lines[Math.floor(Math.random()*lines.length)] + " Your coverage details will be mailed to you in two weeks.");
+    r.classList.remove('show'); void r.offsetWidth; r.classList.add('show');
+  }
+
+  // Doctor finder
+  const docs = [
+    ["Dr. Very Smart, MD (Pending)","Specialty: Everything. His uncle taught at MIT, so it's genetic.","0.2 mi · Rating: ★★★★★ (self-reported)"],
+    ["Dr. Ronny 'Candy Man' Jackson","Specialty: Writing very glowing physicals. 'Incredible genes.'","1.4 mi · Accepts TrumpKare Gold"],
+    ["Dr. Bleach-Adjacent, PhD","Specialty: 'Very interesting' ideas raised at podiums.","Location: Unknown · Not recommended"],
+    ["Nurse Covfefe","Specialty: Late-night consultations, sent in all caps.","Available 3:00 a.m. only"],
+    ["The Guy From the Rally","Specialty: Has 'a lot of experience with this.' Won't say which.","Parking lot, section C"],
+    ["Dr. Two Weeks","Specialty: Scheduling. Your appointment is in two weeks. Forever.","Next available: Two weeks"]
+  ];
+  let last = -1;
+  function findDoc(){
+    let i; do { i = Math.floor(Math.random()*docs.length); } while(i===last); last = i;
+    const [n,s,l] = docs[i], c = document.getElementById('docCard');
+    c.innerHTML = '';
+    const b = document.createElement('b'); b.textContent = n;
+    const p1 = document.createElement('div'); p1.textContent = s;
+    const p2 = document.createElement('div'); p2.textContent = l; p2.style.cssText='color:#5b5b5b;font-size:14px;margin-top:8px';
+    c.append(b,p1,p2);
+  }
+</script>
+</body>
+</html>
